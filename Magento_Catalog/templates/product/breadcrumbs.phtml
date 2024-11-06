@@ -1,0 +1,55 @@
+<?php
+/** @var \Magento\Theme\Block\Html\Breadcrumbs $block */
+/** @var \Magento\Catalog\ViewModel\Product\Breadcrumbs $viewModel */
+$viewModel = $block->getData('viewModel');
+
+// Get breadcrumbs data
+$widget = $this->helper(\Magento\Framework\Json\Helper\Data::class)->jsonDecode($viewModel->getJsonConfigurationHtmlEscaped());
+$breadcrumbs = $widget['breadcrumbs'];
+?>
+<div class="breadcrumbs">
+    <ul class="items">
+        <?php foreach ($breadcrumbs as $index => $item): ?>
+            <li class="item <?= $index === 0 ? 'home' : ($index === count($breadcrumbs) - 1 ? 'product' : 'category') ?>">
+                <?php if ($index < count($breadcrumbs) - 1): ?>
+                    <!-- Categories and Home have links -->
+                    <a href="<?= $item['link'] ?>" title="Go to <?= $item['label'] ?>"><?= $item['label'] ?></a>
+                <?php else: ?>
+                    <!-- Product name without link -->
+                    <strong><?= $item['label'] ?></strong>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<!--
+
+<style>
+	.breadcrumbs {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.breadcrumbs ul li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.breadcrumbs ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.breadcrumbs .separator {
+    margin: 0 5px;
+    color: #999;
+}
+</style>-->
