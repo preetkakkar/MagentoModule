@@ -9,7 +9,12 @@ This module enhances navigation by displaying the complete breadcrumb trail on p
 <li><strong>SEO Benefits:</strong> Creates a structured and consistent navigation trail that can improve search engine indexing and visibility.</li>
 </ul>
 
-Add module to app/code
+<strong>Enable ‘Use Categories Path for Product URLs’</strong><br />
+In the Magento Admin panel, ensure that the setting to include the category path in URLs is enabled: <br />
+Go to Stores > Configuration > Catalog > Catalog > Search Engine Optimization.<br />
+Set Use Categories Path for Product URLs to Yes.
+
+<strong>Add module to app/code/MagentoModule</strong>
 
 <strong>Magento Commands</strong><br />
 php bin/magento setup:upgrade<br />
