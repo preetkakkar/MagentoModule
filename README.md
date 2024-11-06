@@ -27,3 +27,4 @@ app/design/frontend/vendor/theme/Magento_Catalog/templates/product/breadcrumbs.p
 
 <strong>Example of breadcrumbs below</strong><br /> 
 Home > Category > Sub Category > Product <br />
+![example](https://github.com/user-attachments/assets/468bd8a0-e210-4829-9964-b1f8be0bdf46)
